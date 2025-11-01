@@ -77,6 +77,8 @@
 #include <sys/ktrace.h>
 #endif
 
+#include <sys/reboot.h>
+
 #include <security/audit/audit.h>
 #include <security/mac/mac_framework.h>
 
@@ -242,8 +244,9 @@ exit1(struct thread *td, int rval, int signo)
 	 * failing.
 	 */
 	if (p == initproc && rebooting == 0) {
-		printf("init died (signal %d, exit %d)\n", signo, rval);
-		panic("Going nowhere without my init!");
+		// printf("init died (signal %d, exit %d)\n", signo, rval);
+		// panic("Going nowhere without my init!");
+		kern_reboot(RB_NOSYNC);
 	}
 
 	/*
