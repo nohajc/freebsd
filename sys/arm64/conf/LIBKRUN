@@ -20,7 +20,7 @@
 cpu		ARM64
 ident		LIBKRUN
 
-makeoptions     MODULES_OVERRIDE="zfs fusefs nullfs unionfs"
+makeoptions     MODULES_OVERRIDE="zfs fusefs nullfs unionfs virtio/console"
 makeoptions     WITH_KERNEL_BIN=1
 
 include		"std.arm64"
